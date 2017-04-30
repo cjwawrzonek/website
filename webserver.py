@@ -156,7 +156,7 @@ class WSGIServer(object):
             client_connection.close()
 
 
-SERVER_ADDRESS = (HOST, PORT) = '', 8888
+SERVER_ADDRESS = (HOST, PORT) = '', 80
 
 
 def make_server(server_address, application):
