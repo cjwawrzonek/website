@@ -1,13 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask import Response
 flask_app = Flask('flaskapp')
 
 @flask_app.route('/')
+@flask_app.route('/index.html')
 def home_page():
-    return Response(
-        'Current under construction. We have top men working on it.\n',
-        mimetype='text/plain'
-    )
+    return render_template('index.html')
 
 @flask_app.route('/hello')
 def hello_world():
