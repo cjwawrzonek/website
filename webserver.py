@@ -133,7 +133,7 @@ class WSGIServer(object):
         ]
         self.headers_set = [status, response_headers + server_headers]
         # To adhere to WSGI specification the start_response must return
-        # a 'write' callable. We simplicity's sake we'll ignore that detail
+        # a 'write' callable. For simplicity's sake we'll ignore that detail
         # for now.
         # return self.finish_response
 
@@ -147,9 +147,10 @@ class WSGIServer(object):
             for data in result:
                 response += data
             # Print formatted response data a la 'curl -v'
+            # Only printing the first 10 lines as the rest comes out as garbage
             print(''.join(
                 '> {line}\n'.format(line=line)
-                for line in response.splitlines()
+                for line in response.splitlines()[0:9]
             ))
             client_connection.sendall(response)
         finally:

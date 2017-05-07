@@ -1,5 +1,4 @@
-from flask import Flask, render_template
-from flask import Response
+from flask import Flask, render_template, Response
 flask_app = Flask('flaskapp')
 
 ###########################################
@@ -31,12 +30,11 @@ def resume_page():
     return render_template('resume.html')
 
 
-
 @flask_app.route('/hello')
 def hello_world():
     return Response(
         'Hello world!\n',
         mimetype='text/plain'
     )
-
+    
 app = flask_app.wsgi_app
