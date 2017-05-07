@@ -36,6 +36,17 @@ hr {
     border-color: #999999;
 }
 
+.carousel-control {
+    border-radius: 10px;
+}
+
+.carousel-img {
+    border-radius: 10px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .brand,
 .address-bar {
     display: none;
@@ -65,13 +76,6 @@ hr {
 }
 .img-small {
     max-width: 60%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.img-very-small{
-    max-width: 40%;
     height: auto;
     margin-left: auto;
     margin-right: auto;

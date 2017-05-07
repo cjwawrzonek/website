@@ -89,15 +89,15 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="img-responsive img-small" src="{{ url_for('static', filename='img/france.jpg') }}" alt="">
+                                <img class="img-responsive carousel-img" src="{{ url_for('static', filename='img/france.jpg') }}" alt="">
                             </div>
 
                             <div class="item">
-                                <img class="img-responsive img-small" src="{{ url_for('static', filename='img/row3.jpg') }}" alt="">
+                                <img class="img-responsive carousel-img" src="{{ url_for('static', filename='img/row3.jpg') }}" alt="">
                             </div>
 
                             <div class="item">
-                                <img class="img-responsive img-very-small" src="{{ url_for('static', filename='img/beach.jpg') }}" alt="">
+                                <img class="img-responsive carousel-img" src="{{ url_for('static', filename='img/beach_wide.jpg') }}" alt=""  align="middle">
                             </div>
                         </div>
 
@@ -185,7 +185,7 @@
     <script language="JavaScript" type="text/javascript">
         $(document).ready(function(){
         $('.carousel').carousel({
-            interval: 5000 //changes the speed
+            interval: 5000
         })
     });    
     </script>
