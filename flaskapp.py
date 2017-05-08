@@ -4,10 +4,6 @@ flask_app = Flask('flaskapp')
 ###########################################
 # URL routes
 ###########################################
-@flask_app.route('/')
-def root_page():
-	return redirect('/home.html')
-
 @flask_app.route('/columns.html')
 def columns_page():
     return render_template('columns.html')
@@ -17,7 +13,7 @@ def columns_page():
 def contact_page():
     return render_template('contact.html')
 
-
+@flask_app.route('/')
 @flask_app.route('/home.html')
 def home_page():
     return render_template('home.html')
