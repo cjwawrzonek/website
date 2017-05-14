@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, redirect
+from flask import Flask, render_template, Response, redirect, url_for
 flask_app = Flask('flaskapp')
 
 ###########################################
@@ -34,5 +34,8 @@ def hello_world():
         'Hello world!\n',
         mimetype='text/plain'
     )
+
+# flask_app.add_url_rule('/favicon.ico',
+#                  redirect_to=url_for('static', filename='img/favicon-16x16.png'))
 
 app = flask_app.wsgi_app
