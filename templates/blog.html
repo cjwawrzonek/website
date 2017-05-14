@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'components/head.html' %}
+
+<body>
+
+    {% include 'components/navbar.html' %}
+
+    <div class="container">
+
+	<div class="box">
+		<div class="row">
+			    <div class="col-md-12">
+		            <img class="center-block img-large img-border round" src="{{ url_for('static', filename='img/logo_wide.png') }}">
+		        </div>
+		</div>
+	</div>
+
+	<div class="box">
+		<div class="row">
+			    <div class="col-md-12">
+		            <img class="center-block img-large round" src="{{ url_for('static', filename='img/construction.png') }}">
+		        </div>
+		</div>
+	</div>
+
+    </div>
+    <!-- /.container -->
+
+    {% include 'components/footer.html' %}
+
+    {% include 'components/scripts.html' %}
+</body>
+
+</html>

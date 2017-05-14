@@ -10,7 +10,11 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-            <a class="navbar-brand" href="home.html">Home</a>
+            <a class="navbar-brand" href="home.html">
+                {% if page %}
+                {{ page }}
+                {% endif %}
+            </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -19,10 +23,10 @@
                     <a href="home.html">Home</a>
                 </li>
                 <li>
-                    <a href="resume.html">Resume</a>
+                    <a href="blog.html">Blog</a>
                 </li>
                 <li>
-                    <a href="columns.html">Columns</a>
+                    <a href="resume.html">Resume</a>
                 </li>
                 <li>
                     <a href="contact.html">Contact</a>
