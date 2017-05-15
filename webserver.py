@@ -80,7 +80,7 @@ class WSGIServer(object):
         # Print formatted request data a la 'curl -v'
         print(''.join(
             '< {line}\n'.format(line=line)
-            for line in request_data.splitlines()
+            for line in request_data.splitlines()[0:2]
         ))
 
         self.parse_request(request_data)

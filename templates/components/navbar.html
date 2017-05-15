@@ -11,8 +11,8 @@
             </button>
             <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
             <a class="navbar-brand" href="home.html">
-                {% if page %}
-                {{ page }}
+                {% if context.page %}
+                {{ context.page }}
                 {% endif %}
             </a>
         </div>
@@ -21,6 +21,9 @@
             <ul class="nav navbar-nav">
                 <li>
                     <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <a href="projects.html">Projects</a>
                 </li>
                 <li>
                     <a href="blog.html">Blog</a>

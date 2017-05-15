@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'components/head.html' %}
+
+<body>
+
+    {% include 'components/navbar.html' %}
+
+    <div class="container">
+
+    {% include 'components/construction.html' %}
+
+	{% include 'components/logo_box.html' %}
+
+	{% for project in context.projects %}
+		{% if loop.index0 is divisibleby 2 %}
+			<div class="row">
+		{% endif %}
+
+    	{% include "components/project_thumbnail.html" %}
+
+    	{% if (loop.index0 + 1) is divisibleby 2 %}
+			</div>
+		{% endif %}
+
+	{% endfor %}
+
+	<!-- Add final </div> for odd number of thumbnails -->
+    {% if context.projects|length is not even %}
+		</div>
+	{% endif %}
+
+    </div>
+    <!-- /.container -->
+
+    {% include 'components/footer.html' %}
+
+    {% include 'components/scripts.html' %}
+</body>
+
+</html>
