@@ -19,9 +19,9 @@ h3,
 h4,
 h5,
 h6 {
-    text-transform: uppercase;
-    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-family: "Enriqueta";
+    /*font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-weight: 400;
     letter-spacing: 1px;
 }
 
@@ -39,6 +39,10 @@ hr {
 /*##########################################*/
 /* General custom classes */
 /*##########################################*/
+.title {
+    font-size: 3em;
+}
+
 .round {
     border-radius: 3px;
 }
@@ -68,7 +72,6 @@ hr {
     box-shadow: 5px 5px 50px #151515;
 }
 
-
 .shadow {
     box-shadow: 5px 5px 50px #151515;
 }
@@ -92,11 +95,18 @@ hr {
     letter-spacing: 3px;
 }
 
+.navbar-default {
+    border: none;
+    background: rgba(255,255,255,0.9);
+}
+
 /*##########################################*/
 /* Logo / Brand */
 /*##########################################*/
 .brand-before,
 .brand-name {
+    font-weight: 100;
+    /*font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;*/
     text-transform: capitalize;
 }
 
@@ -119,7 +129,7 @@ hr {
 }
 
 /*##########################################*/
-/* Post Columns (for bolog and portfolio) */
+/* Posts and Projects */
 /*##########################################*/
 .post-column {
     padding-left: 10px;
@@ -139,7 +149,6 @@ hr {
 
 .post-column .summary {
     text-decoration: none;
-    line-height: 1.2;
     font-size: 1em;
     margin: 0px;
 }
@@ -163,6 +172,11 @@ a.hvr-grow {
 .hvr-grow:focus,
 .hvr-grow:active {
   transform: translateY(-8px);
+}
+
+.post-body {
+    font-family: 'Enriqueta', serif;
+    margin: 0px 15px;
 }
 
 /*##########################################*/
@@ -369,12 +383,6 @@ footer p {
 
     .navbar {
         min-height: 0;
-    }
-
-    .navbar-default {
-        border: none;
-        background: #fff;
-        background: rgba(255,255,255,0.9);
     }
 
     .nav>li>a {

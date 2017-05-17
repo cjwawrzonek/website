@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'components/head.html' %}
+
+<body>
+
+    {% include 'components/navbar.html' %}
+
+    <div class="container">
+
+        <div class="box">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+
+                    <div class="image">
+                    <img class="img-large img-border round" src="{{ url_for('static', filename='img/net_wide.png') }}">
+                    </div>
+
+                    <h1 class="brand-name" style="margin-top:50px;">{{ context.post.title }}</h1>
+                    <hr class="tagline-divider">
+                    <h2>
+                        <small> {{ context.post.summary }} </small>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box">
+                    <div class="post-body">
+                        <small>
+                            {{ context.post.text|safe }}
+                        </small>
+                    </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    {% include 'components/footer.html' %}
+
+    {% include 'components/scripts.html' %}
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+
+    MathJax.Hub.Config({
+    tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+    "HTML-CSS": {
+      linebreaks: { automatic: true, width: "container" }          
+    }              
+    });
+
+    window.addEventListener('resize', MJrerender);
+    function MJrerender(){
+        MathJax.Hub.Queue(["Rerender",MathJax.Hub])
+    };
+
+    </script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+
+</body>
+
+</html>
