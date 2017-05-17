@@ -16,7 +16,7 @@ flask_app = Flask('flaskapp')
 flask_app.config.update(dict(
     DATABASE=os.path.join(flask_app.root_path, db_path),
     SECRET_KEY='secret-key',
-    DEBUG=False
+    DEBUG=True
 ))
 
 #####################################################################
