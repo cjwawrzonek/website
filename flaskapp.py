@@ -31,16 +31,13 @@ def connect_db():
 
 
 def init_db():
-    if os.path.isfile(flask_app.config['DATABASE']):
-    	print "Using existing database file." 
-    else:
-    	db = get_db()
-    	with flask_app.open_resource('data/schema.sql', mode='r') as f:
-    		db.cursor().executescript(f.read())
-	        db.commit()
-		_db_add_test_entries()
+	db = get_db()
+	with flask_app.open_resource('data/schema.sql', mode='r') as f:
+		db.cursor().executescript(f.read())
+        db.commit()
+	_db_add_post_entries()
 
-		print "Initialized sqlite db"
+	print "Initialized sqlite db"
 
 
 def get_db():
@@ -68,7 +65,7 @@ def _add_post_context(context, post_id):
 	"""Adds the details of a specific post to the template context"""
 
 	db = get_db()
-	cur = db.execute('select title, prefix, summary, date_string from post_summaries where id={}'.format(post_id))
+	cur = db.execute('select title, prefix, summary, date from post_summaries where id={}'.format(post_id))
 	post = cur.fetchall()
 
 	context['post'] = post[0]
@@ -91,8 +88,8 @@ def _add_thumbnails(context):
 	else:
 		context['posts'] = results
 
-def _db_add_test_entries():
-	"""Adds a list of test post summaries to the database for testing purposes"""
+def _db_add_post_entries():
+	"""Adds a list of post summaries to the database"""
 
 	with io.open('data/post_list.json', mode='r', encoding='utf-8') as json_file:    
 		post_list = json.load(json_file)
@@ -105,27 +102,16 @@ def _db_add_test_entries():
 			img = 'img/empty.png'
 		else:
 			img = post['thumbnail_img_url']
-		command='insert into post_summaries(type, title, prefix, summary, thumbnail_img_url, date_string) values(?, ?, ?, ?, ?, ?)'
-		db.execute(command, [post['type'], post['title'], post['prefix'], post['summary'], img, post['date_string']])
+		command='insert into post_summaries(type, title, prefix, summary, thumbnail_img_url, date) values(?, ?, ?, ?, ?, ?)'
+		db.execute(command, [post['type'], post['title'], post['prefix'], post['summary'], img, post['date']])
 	db.commit()
 
-	print "Added test entries to projects table."
+	print "Added post entries to post_summaries table."
 
 
 #####################################################################
 # URL routes
 #####################################################################
-# Looks pretty bad. Consider fixing later.
-# @flask_app.route('/about.html')
-# def about_page():
-#     return render_template('about.html')
-
-
-# Doesn't seem relevant anymore. Needs work.
-# @flask_app.route('/columns.html')
-# def columns_page():
-#     return render_template('columns.html', page='Columns')
-
 
 @flask_app.route('/blog')
 def blog_page():

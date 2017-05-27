@@ -6,7 +6,7 @@
 			"thumbnail_img_url": "img/thumbnails/assume.png",
 			"summary": "What are assumptions and when are they useful? Is it insensitive to ever assume something about a person's identity? A conversation with a coworker prompted me to explore what it means to assume something about a person and when we should think twice about it.",
 			"prefix": "blog1",
-			"date_string": "05/26/2017"
+			"date": "05/26/2017"
 		},
 		{
 			"type": "project",
@@ -14,14 +14,14 @@
 			"summary": "Short summary.",
 			"thumbnail_img_url": "img/thumbnails/net.png",
 			"prefix": "test",
-			"date_string": "05/26/2017"
+			"date": "05/26/2017"
 		},
 		{
 			"type": "project",
 			"title": "Project Title",
 			"summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.",
 			"prefix": "test",
-			"date_string": "05/26/2017"
+			"date": "05/26/2017"
 		}
 	]
 }

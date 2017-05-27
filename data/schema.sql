@@ -1,5 +1,5 @@
 -- if want to add a column name that is a keyword, use 'quotes'
--- drop table if exists project_thumbnails;
+drop table if exists post_summaries;
 create table post_summaries (
   id integer primary key autoincrement,
   prefix text not null,
@@ -7,5 +7,5 @@ create table post_summaries (
   title text not null,
   summary text not null,
   thumbnail_img_url text not null,
-  date_string text not null
+  'date' text not null
 );
