@@ -4,8 +4,9 @@
 from flask import Flask, render_template, Response, g, redirect, url_for, \
 	 flash
 
-import os
 import io
+import json
+import os
 import sqlite3
 
 #####################################################################
@@ -67,7 +68,7 @@ def _add_post_context(context, post_id):
 	"""Adds the details of a specific post to the template context"""
 
 	db = get_db()
-	cur = db.execute('select title, prefix, summary from post_summaries where id={}'.format(post_id))
+	cur = db.execute('select title, prefix, summary, date_string from post_summaries where id={}'.format(post_id))
 	post = cur.fetchall()
 
 	context['post'] = post[0]
@@ -93,29 +94,10 @@ def _add_thumbnails(context):
 def _db_add_test_entries():
 	"""Adds a list of test post summaries to the database for testing purposes"""
 
-	with io.open('data/test_post.txt', mode='r', encoding='utf-8') as test_post:
-	    test_text=test_post.read()
+	with io.open('data/post_list.json', mode='r', encoding='utf-8') as json_file:    
+		post_list = json.load(json_file)
 
-	post1 = {'type': 'blog', 'title': 'Insensitivity And The Nature Of Assumptions', 'thumbnail_img_url': 'img/thumbnails/assume.png',
-	'summary': 'What are assumptions and when are they useful? Is it insensitive to ever assume something about a person\'s identity?'\
-	' A conversation with a coworker prompted me to explore what it means to assume something about a person and when we should think'\
-	' twice about it.', 'prefix': 'blog1'}
-	post2 = {'type': 'project', 'title': 'Another', 'summary': 'Short summary.', 'thumbnail_img_url': 'img/thumbnails/net.png', 'prefix': 'test'}
-	post3 = {'type': 'project', 'title': 'Project Title', 'summary': 'Lorem ipsum dolor sit amet, consectetur'\
-													 ' adipiscing elit. Nam viverra euismod odio,'\
-													 ' gravida pellentesque urna varius vitae.'\
-													 ' Lorem ipsum dolor sit amet, consectetur '\
-													 'adipiscing elit. Nam viverra euismod odio,'\
-													 ' gravida pellentesque urna varius vitae.', 'prefix': 'test'}
-	# post1 = {'title': '2.1', 'summary': 'This is a medium length summary. This should '\
-	# 										'appear on multiple lines', 'text': test_text}
-	# project5 = {'title': 'A Brief Overview of Representational Similarity Analysis (RSA)',
-	# 			'summary': 'Lorem ipsum dolor sit amet, consectetur'\
-	# 												 ' adipiscing elit. Nam viverra euismod odio,'\
-	# 												 ' gravida pellentesque urna varius vitae.',
-	# 												 'thumbnail_img_url': 'img/net.png', 'text': test_text}
-
-	posts = [post1, post2, post3]
+	posts = post_list['posts']
 
 	db = get_db()
 	for post in posts:
@@ -123,8 +105,8 @@ def _db_add_test_entries():
 			img = 'img/empty.png'
 		else:
 			img = post['thumbnail_img_url']
-		command='insert into post_summaries(type, title, prefix, summary, thumbnail_img_url) values(?, ?, ?, ?, ?)'
-		db.execute(command, [post['type'], post['title'], post['prefix'], post['summary'], img])
+		command='insert into post_summaries(type, title, prefix, summary, thumbnail_img_url, date_string) values(?, ?, ?, ?, ?, ?)'
+		db.execute(command, [post['type'], post['title'], post['prefix'], post['summary'], img, post['date_string']])
 	db.commit()
 
 	print "Added test entries to projects table."

@@ -6,5 +6,6 @@ create table post_summaries (
   type text not null,
   title text not null,
   summary text not null,
-  thumbnail_img_url text not null
+  thumbnail_img_url text not null,
+  date_string text not null
 );

@@ -6,12 +6,12 @@
             <img class="img-large img-border round" src="{{ url_for('static', filename='img/logo_wide.png') }}">
             </div>
 
-            <h1 class="brand-name" style="margin-top:20px;">Insensitivity and the nature of assumptions</h1>
+            <h1 class="brand-name" style="margin-top:20px;">{{ context.post.title }}</h1>
             <hr class="tagline-divider">
             <h2 class="summary">
-                <small>What are assumptions and when are they useful? Is it insensitive to ever assume something about a person’s identity? A conversation with a coworker prompted me to explore what it means to assume something about a person and when we should think twice about it.</small>
+                <small>{{ context.post.summary }}</small>
             </h2>
-            <h4 class="date"><small>05/26/2017</small></h4>
+            <h4 class="date"><small>{{ context.post.date_string }}</small></h4>
         </div>
     </div>
 </div>
@@ -58,7 +58,7 @@
 		 
 		<h4 class="section">V. The real problem is not the assumption</h4>
 		 
-		<p class="tab">Somewhere between 0.05 percent and 1 percent of the population likely <a href="https://en.wikipedia.org/wiki/Gender_dysphoria" target="_blank">suffers from gender dysphoria.</a> In addition, I would guess that those who suffer from gender dysphoria typically dress or act in a way that more closely aligns with their gender identity, indicating that it's not safe to assume their gender. Humans, like every animal, are very, very good at guessing the biological sex of another member of our species. It’s programmed into us. Thus, the probability of correctly assuming somebody’s gender identity from the way they dress and act is very high, likely over 99 percent. We all do it all the time, and it works really, really well. If somebody informs me that they identify as a different gender than I previously thought, I gladly accommodate them. But the tradeoff of beginning every conversation with “Hello, what gender do you identify with?” seems tedious and unnecessary given I can already tell the vast majority of the time. Of course, given that I don't have to deal with issues like gender dysphoria, it's possible that I'm unfairly discounting people's feelings.</p>
+		<p class="tab">Somewhere between 0.05 percent and 1 percent of the population likely <a href="https://en.wikipedia.org/wiki/Gender_dysphoria" target="_blank">suffers from gender dysphoria.</a> In addition, I would guess that those who suffer from gender dysphoria typically dress or act in a way that more closely aligns with their gender identity, indicating that it's not safe to assume their gender. Humans, like every animal, are very, very good at guessing the biological sex of another member of our species. It’s programmed into us. Thus, the probability of correctly assuming somebody’s gender identity from the way they dress and act is very high, likely over 99 percent. We all do it all the time, and it works really, really well. If somebody informs me that they identify as a different gender than I previously thought, I gladly accommodate them. But the tradeoff of beginning every conversation with “Hello, what gender do you identify with?” seems unnecessary given I can already tell the vast majority of the time. Of course, given that I don't have to deal with issues like gender dysphoria, it's possible that I'm unfairly discounting people's feelings.</p>
 
 		<p class="tab">But the issue, as my coworker described it, seems to be that people feel like outcasts when these differences are made explicit. They feel as if these differences are not accepted. If that's the case, then we should strive to make these differences more socially acceptable. We should strive to accept and accommodate everybody’s preferences and corrections to our assumptions should be welcomed. Perhaps these corrections should become the norm for small talk instead of the weather. But we should not pretend as if these differences are not differences at all, that in fact nobody can tell whether you’re a man or a woman or that you have an accent or that you dress differently. We can all tell, and that’s absolutely fine. Real progress comes from learning to accept everybody despite these differences, not pretending that these differences do not exist in the first place.</p>
     </div>
