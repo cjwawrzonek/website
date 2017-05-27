@@ -1,0 +1,15 @@
+<div class="col-sm-12 post-column">
+	<a class="hvr-grow post-box" href="post/{{post.id}}">
+		<div class="box">
+			<div class="row">
+				<div class="col-sm-8 ">
+			    	<h3 class="page-header">{{ post.title }}</h3>
+			   		<p class="summary">{{ post.summary }}</p>
+			   	</div>
+			   	<div class="col-sm-4 ">
+			    	<img class="center-block img-full" src="{{ url_for('static', filename=post.thumbnail_img_url) }}">
+			    </div>
+		   	</div>
+		</div>
+	</a>
+</div>

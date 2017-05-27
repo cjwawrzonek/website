@@ -9,9 +9,18 @@
 
     <div class="container">
 
-    {% include 'components/construction.html' %}
+    <!-- { % include 'components/construction.html' % } -->
 
-    {% include 'components/logo_box.html' %}
+    <!-- { % include 'components/logo_box.html' % } -->
+
+	{% for post in context.posts %}
+		<div class="row">
+
+    	{% include "components/post_thumbnail.html" %}
+
+		</div>
+
+	{% endfor %}
 
     </div>
     <!-- /.container -->

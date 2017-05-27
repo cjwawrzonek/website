@@ -39,6 +39,12 @@ hr {
 /*##########################################*/
 /* General custom classes */
 /*##########################################*/
+
+p.tab { 
+    text-indent: 2.0em;
+    padding: 10px 0px;
+}
+
 .title {
     font-size: 3em;
 }
@@ -58,7 +64,7 @@ hr {
 }
 
 .tagline-divider {
-    margin: 15px auto 3px;
+    margin: 15px auto 15px;
     max-width: 250px;
     border-color: #999999;
 }
@@ -131,6 +137,19 @@ hr {
 /*##########################################*/
 /* Posts and Projects */
 /*##########################################*/
+.post-box {
+    min-width: 100%;
+}
+
+.post-body h4 {
+    font-weight: bold;
+    padding: 15px 0px;
+}
+
+.post-body ol {
+    font-size: 1.25em;
+}
+
 .post-column {
     padding-left: 10px;
     padding-right: 10px;
@@ -140,10 +159,15 @@ hr {
     padding: 20px 15px 15px 15px;
 }
 
+.post-column [class^="col-"] {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .post-column .page-header {
     color: #333;
-    padding-bottom: 7px;
-    margin: 30px 10px 10px 0px;
+    padding-bottom: 13px;
+    margin: 20px 10px 15px 0px;
     border-bottom: 1px solid #8e8e8e;
 }
 
@@ -175,7 +199,8 @@ a.hvr-grow {
 }
 
 .post-body {
-    font-family: 'Enriqueta', serif;
+    /*font-family: 'Enriqueta', serif;*/
+    font-size: 0.92em;
     margin: 0px 15px;
 }
 
@@ -334,7 +359,7 @@ footer p {
 /* CUSTOM RESOPONSIVE */
 
 /*##########################################*/
-/* Resizing options for mobile */
+/* Resizing options for mobile vs desktop */
 /*##########################################*/
 @media screen and (min-width:768px) {
     .brand {
@@ -399,6 +424,15 @@ footer p {
         margin: 0 auto;
         table-layout: fixed;
         font-size: 1.25em;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .post-column {
+        padding: 0px 20px 20px 20px;
+    }
+    .post-column [class^="col-"] {
+        margin: 10px 10px 10px 0px;
     }
 }
 

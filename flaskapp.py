@@ -37,8 +37,7 @@ def init_db():
     	with flask_app.open_resource('data/schema.sql', mode='r') as f:
     		db.cursor().executescript(f.read())
 	        db.commit()
-		if flask_app.config['DEBUG'] == True:
-			_db_add_test_entries()
+		_db_add_test_entries()
 
 		print "Initialized sqlite db"
 
@@ -68,54 +67,64 @@ def _add_post_context(context, post_id):
 	"""Adds the details of a specific post to the template context"""
 
 	db = get_db()
-	cur = db.execute('select title, summary, text from projects where id={}'.format(post_id))
+	cur = db.execute('select title, prefix, summary from post_summaries where id={}'.format(post_id))
 	post = cur.fetchall()
 
 	context['post'] = post[0]
 
-def _add_project_thumbnails(context):
-	"""Adds a list of project thumbnails to the page context loaded from the db"""
+def _add_thumbnails(context):
+	"""Adds a list of post/project thumbnails to the page context loaded from the db"""
+
+	if context['page'] == "Projects":
+		page_type = 'project'
+	else:
+		page_type = 'blog'
 
 	db = get_db()
-	cur = db.execute('select id, title, summary, thumbnail_img_url from projects order by id desc')
-	projects = cur.fetchall()
+	cur = db.execute('select id, prefix, title, summary, thumbnail_img_url from post_summaries '\
+					 'where type = ? order by id desc', [page_type])
+	results = cur.fetchall()
 
-	context['projects'] = projects
-
-	print projects
+	if context['page'] == "Projects":
+		context['projects'] = results
+	else:
+		context['posts'] = results
 
 def _db_add_test_entries():
-	"""Adds a list of fale project thumbnails to the database for testing purposes"""
+	"""Adds a list of test post summaries to the database for testing purposes"""
 
 	with io.open('data/test_post.txt', mode='r', encoding='utf-8') as test_post:
 	    test_text=test_post.read()
 
-	project1 = {'title': 'A project', 'summary': 'Here is a brief summary of this project', 'text': test_text}
-	project2 = {'title': 'Another', 'summary': 'Short summary.', 'thumbnail_img_url': 'img/thumbnails/net.png', 'text': test_text}
-	project3 = {'title': 'Project Title', 'summary': 'Lorem ipsum dolor sit amet, consectetur'\
+	post1 = {'type': 'blog', 'title': 'Insensitivity And The Nature Of Assumptions', 'thumbnail_img_url': 'img/thumbnails/assume.png',
+	'summary': 'What are assumptions and when are they useful? Is it insensitive to ever assume something about a person\'s identity?'\
+	' A conversation with a coworker prompted me to explore what it means to assume something about a person and when we should think'\
+	' twice about it.', 'prefix': 'blog1'}
+	post2 = {'type': 'project', 'title': 'Another', 'summary': 'Short summary.', 'thumbnail_img_url': 'img/thumbnails/net.png', 'prefix': 'test'}
+	post3 = {'type': 'project', 'title': 'Project Title', 'summary': 'Lorem ipsum dolor sit amet, consectetur'\
 													 ' adipiscing elit. Nam viverra euismod odio,'\
 													 ' gravida pellentesque urna varius vitae.'\
 													 ' Lorem ipsum dolor sit amet, consectetur '\
 													 'adipiscing elit. Nam viverra euismod odio,'\
-													 ' gravida pellentesque urna varius vitae.', 'text': test_text}
-	project4 = {'title': '2.1', 'summary': 'This is a medium length summary. This should '\
-											'appear on multiple lines', 'text': test_text}
-	project5 = {'title': 'A Brief Overview of Representational Similarity Analysis (RSA)',
-				'summary': 'Lorem ipsum dolor sit amet, consectetur'\
-													 ' adipiscing elit. Nam viverra euismod odio,'\
-													 ' gravida pellentesque urna varius vitae.',
-													 'thumbnail_img_url': 'img/net.png', 'text': test_text}
+													 ' gravida pellentesque urna varius vitae.', 'prefix': 'test'}
+	# post1 = {'title': '2.1', 'summary': 'This is a medium length summary. This should '\
+	# 										'appear on multiple lines', 'text': test_text}
+	# project5 = {'title': 'A Brief Overview of Representational Similarity Analysis (RSA)',
+	# 			'summary': 'Lorem ipsum dolor sit amet, consectetur'\
+	# 												 ' adipiscing elit. Nam viverra euismod odio,'\
+	# 												 ' gravida pellentesque urna varius vitae.',
+	# 												 'thumbnail_img_url': 'img/net.png', 'text': test_text}
 
-	projects = [project1, project2, project3, project4, project5]
+	posts = [post1, post2, post3]
 
 	db = get_db()
-	for project in projects:
-		if 'thumbnail_img_url' not in project:
+	for post in posts:
+		if 'thumbnail_img_url' not in post:
 			img = 'img/empty.png'
 		else:
-			img = project['thumbnail_img_url']
-		command='insert into projects(title, summary, thumbnail_img_url, text) values(?, ?, ?, ?)'
-		db.execute(command, [project['title'], project['summary'], img, project['text']])
+			img = post['thumbnail_img_url']
+		command='insert into post_summaries(type, title, prefix, summary, thumbnail_img_url) values(?, ?, ?, ?, ?)'
+		db.execute(command, [post['type'], post['title'], post['prefix'], post['summary'], img])
 	db.commit()
 
 	print "Added test entries to projects table."
@@ -139,6 +148,7 @@ def _db_add_test_entries():
 @flask_app.route('/blog')
 def blog_page():
 	context = _gen_page_context('Blog')
+	_add_thumbnails(context)
 	return render_template('blog.html', context=context)
 
 
@@ -167,7 +177,7 @@ def post_page(post_id):
 def projects_page():
 	flash("test flash")
 	context = _gen_page_context('Projects')
-	_add_project_thumbnails(context)
+	_add_thumbnails(context)
 	return render_template('projects.html', context=context)
 
 
@@ -179,10 +189,10 @@ def resume_page():
 
 @flask_app.route('/hello')
 def hello_world():
-    return Response(
-        'Hello world!\n',
-        mimetype='text/plain'
-    )
+	return Response(
+		'Hello world!\n',
+		mimetype='text/plain'
+	)
 
 
 #####################################################################
