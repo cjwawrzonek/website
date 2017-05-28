@@ -1,7 +1,7 @@
 <div class="col-sm-6 post-column">
 	<a class="hvr-grow post-box" href="post/{{project.id}}">
 		<div class="box">
-	    	<img class="center-block img-full" src="{{ url_for('static', filename=project.thumbnail_img_url) }}">
+	    	<img class="center-block img-full img-border" src="{{ url_for('static', filename=project.thumbnail_img_url) }}">
 	    	<h3 class="page-header">{{ project.title }}</h3>
 	   		<p class="summary">{{ project.summary }}</p>
 		</div>

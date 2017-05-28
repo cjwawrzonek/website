@@ -2,7 +2,7 @@
 # Very basic flask app. Closely follows flaskr code.
 #####################################################################
 from flask import Flask, render_template, Response, g, redirect, url_for, \
-	 flash
+	 flash, send_file, redirect
 
 import io
 import json
@@ -108,7 +108,6 @@ def _db_add_post_entries():
 
 	print "Added post entries to post_summaries table."
 
-
 #####################################################################
 # URL routes
 #####################################################################
@@ -153,6 +152,12 @@ def projects_page():
 def resume_page():
 	context = _gen_page_context('Resume')
 	return render_template('resume.html', context=context)
+
+
+@flask_app.route('/docs/<filename>')
+def serve_doc(filename=None):
+	if filename is not None:
+		return redirect(url_for('static', filename='docs/{}'.format(filename)))
 
 
 @flask_app.route('/hello')

@@ -89,6 +89,12 @@ p.tab {
     letter-spacing: 1px;
 }
 
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #171717;
+}
+
+
 .navbar-brand {
     text-transform: uppercase;
     font-weight: 900;
@@ -122,7 +128,7 @@ p.tab {
 
 .brand-name {
     margin: 0;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 #logo-box.box {
@@ -132,6 +138,26 @@ p.tab {
 .brand,
 .address-bar {
     display: none;
+}
+
+/*##########################################*/
+/* Buttons */
+/*##########################################*/
+
+.button-row {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.row-button {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.row-button .btn:focus,
+.row-button .btn:active:focus,
+.row-button .btn.active:focus {
+  outline: none;
 }
 
 /*##########################################*/
@@ -173,8 +199,12 @@ p.tab {
 
 .post-column .summary {
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.1em;
     margin: 0px;
+}
+
+.post-header .summary {
+    padding: 0px 10px 10px 10px;
 }
 
 a.hvr-grow {
@@ -254,7 +284,7 @@ a.hvr-grow {
 .img-border {
     float: none;
     margin: 0 auto 0;
-    border: #999999 solid 1px;
+    border: #BBBBBB solid 1px;
 }
 
 .img-left {
@@ -361,6 +391,8 @@ footer p {
 /*##########################################*/
 /* Resizing options for mobile vs desktop */
 /*##########################################*/
+
+/* Desktop (or larger screens) */
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -429,9 +461,24 @@ footer p {
     h4.date {
         font-size: 23px;
     }
+
+    .row-button button {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 6px;
+    }
 }
 
-@media screen and (max-width:768px) {
+/* Mobile screens */
+@media screen and (max-width:767px) {
+    .row-button button {
+        padding: 10px 12px;
+        font-size: 15px;
+        line-height: 1.5;
+        border-radius: 4px;
+    }
+
     h1.brand-name {
         font-size: 2.5em;
     }
