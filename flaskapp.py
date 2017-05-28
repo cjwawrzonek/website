@@ -154,12 +154,6 @@ def resume_page():
 	return render_template('resume.html', context=context)
 
 
-@flask_app.route('/docs/<filename>')
-def serve_doc(filename=None):
-	if filename is not None:
-		return redirect(url_for('static', filename='docs/{}'.format(filename)))
-
-
 @flask_app.route('/hello')
 def hello_world():
 	return Response(
