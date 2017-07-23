@@ -27,7 +27,7 @@ h6 {
 
 p {
     font-size: 1.25em;
-    line-height: 1.9;
+    line-height: 1.6;
     color: #000;
 }
 
@@ -150,6 +150,7 @@ p.tab {
 }
 
 .row-button {
+    text-align: center;
     padding-top: 8px;
     padding-bottom: 8px;
 }
@@ -163,16 +164,31 @@ p.tab {
 /*##########################################*/
 /* Posts and Projects */
 /*##########################################*/
-.post-box {
+.post-thumbnail {
     min-width: 100%;
 }
 
-.post-body h4 {
+.post-body {
+    /*font-family: 'Enriqueta', serif;*/
+    font-size: 0.92em;
+    margin: 0px 15px;
+}
+
+.post-body > p {
+    line-height: 1.9;
+}
+
+.post-body > blockquote {
+    font-size: 1.25em;
+    line-height: 1.6;
+}
+
+.post-body > h4 {
     font-weight: bold;
     padding: 15px 0px;
 }
 
-.post-body ol {
+.post-body > ol {
     font-size: 1.25em;
 }
 
@@ -199,12 +215,17 @@ p.tab {
 
 .post-column .summary {
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1em;
     margin: 0px;
 }
 
 .post-header .summary {
     padding: 0px 10px 10px 10px;
+}
+
+.post-header h1.brand-name {
+    margin-top:30px;
+    margin-bottom:15px;
 }
 
 a.hvr-grow {
@@ -228,10 +249,9 @@ a.hvr-grow {
   transform: translateY(-8px);
 }
 
-.post-body {
-    /*font-family: 'Enriqueta', serif;*/
-    font-size: 0.92em;
-    margin: 0px 15px;
+.post-body > h4.content-message {
+    font-weight: 200;
+    line-height: 1.6;
 }
 
 /*##########################################*/
@@ -290,6 +310,11 @@ a.hvr-grow {
 .img-left {
     float: none;
     margin: 0 auto 0;
+}
+
+.img-center {
+    display: block;
+    margin: 0 auto;
 }
 
 /*##########################################*/
@@ -466,7 +491,12 @@ footer p {
         padding: 10px 16px;
         font-size: 18px;
         line-height: 1.33;
-        border-radius: 6px;
+        border-radius: 1px;
+    }
+
+    .col-sm-12.row-button button.btn-block {
+        max-width: 50%;
+        display: inline-block;
     }
 }
 
@@ -476,7 +506,7 @@ footer p {
         padding: 10px 12px;
         font-size: 15px;
         line-height: 1.5;
-        border-radius: 4px;
+        border-radius: 1px;
     }
 
     h1.brand-name {
@@ -495,11 +525,19 @@ footer p {
         font-size: .82em;
     }
 
+    .post-body > blockquote {
+        font-size: 1.2em;
+    }
+
     .post-column {
         padding: 0px 20px 20px 20px;
     }
     .post-column [class^="col-"] {
         margin: 10px 10px 10px 0px;
+    }
+
+    .post-body > h4.content-message {
+        font-size: 1.2em;
     }
 }
 

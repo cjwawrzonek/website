@@ -1,0 +1,40 @@
+<div class="box post-header">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+
+            <div class="image">
+            <img class="img-large img-border round" src="{{ url_for('static', filename='img/thumbnails/love.jpg') }}">
+            </div>
+
+            <h1 class="brand-name">{{ context.post.title }}</h1>
+            <hr class="tagline-divider">
+            <h2 class="summary">
+                <small>{{ context.post.summary }}</small>
+            </h2>
+            <h4 class="date"><small>{{ context.post.date }}</small></h4>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class="post-body">
+		<p class="tab">For young, single, straight men, there’s nothing as universally understood and mysterious as the plight of talking to a crush. We’ve all seen this trope done millions of times over in movies, tv shows, books, ad infinitum. A boy sees his crush. Cue Tchaicovsky’s Romeo and Juliet Overture. He adores the girl from afar, filled with fantasies of a dreamy kiss or passionate confession of love. See: Evan and Becca (Superbad), Arnold and Ruth (Hey Arnold), Albert and Allegra Cole (Hitch), every nerdy comedy ever, etc. Our protagonist wants nothing more than to just go talk to her. But whenever he tries, he gets queasy. He gets butterflies in his stomach. He makes a fool of himself, or lacks the confidence to even approach her at all. “Why can’t I talk to X?!” our protagonist exclaims. Sometimes also asked in the more general sense of, “why can’t I talk to girls?!” It seems simple right? Why can’t we just go up to a person and say “hey, I like you, do you want to date me?” What mysterious skill do some men have that others don’t? The simple answer: signaling.</p>
+
+		<p class="tab">Let’s assume that there exists this imaginary number, Θ, that measures how valuable a person is as a romantic partner. This number takes attractiveness, humor, success, honesty, maturity, and any other factor that we might look for in a mate and projects it down to a single scalar number. Obviously different people value different things, but for the sake of argument, everyone agrees that Θ is the best measurement we can come up with. When looking for a partner, every person always tries to maximize the value of their choice. Nobody will accept a Θ lower than their own, but they’ll happily accept a higher Θ if that person desires to date them. If we assume that everybody is perfectly rational and knows their own Θ, this leads to the stable state where everybody is dating somebody within some ±𝞮 of their Θ. A 10 won’t date a 5, a 5 won’t date a 1, but an 8 might date a 9 and visa versa. While pedantic, so far this seems to fit our intuitive understanding of how people date.</p>
+
+		<p class="tab">But there’s a problem here when we apply this to humans. How do I know my own Θ? I’m far too biased to give myself a value, and I can’t go around asking my friends. They’re far too polite to be honest with me, plus I’ve baked in a selection bias by choosing people who like me enough to be my friend. Thus, I have to estimate my Θ based on the interactions I have with potential partners. However, doing this leads to an incredibly odd incentive structure. That is, the agents responsible for signaling my value to me are themselves interested in dating me. Since a person will only date within some ±𝞮 of their Θ, these agents have an incentive to deceive me into thinking I have a lower Θ than the one they’ve assigned to me.</p>
+
+		<p class="tab">If this sounds confusing, think of how this applies to how we talk to our crushes. Why does “playing hard to get” exist? Why is this even a thing? Why can’t Michael Cera just go up and say “I like you Becca?” Moreover, why does “being too available” generally turn people off? Taking into account Θ, it’s simple. When a person shows romantic interest in you, they are signaling that you have a high Θ and that they (likely) have a lower Θ. Inversely, if they seem uninterested in you, they’re signaling you have a lower Θ, at LEAST beneath their Θ - 𝞮 lower bound for how low they’ll settle. Thus romantic games become a push and pull, a coy game of revealing some level of interest to signal that you could be pursued without signaling so much interest as to appear like you’re trying to date upwards.</p>
+
+		<p class="tab">Ever heard of <a href="https://en.wikipedia.org/wiki/Negging" target="_blank">negging</a>? Essentially, it’s a strategy for picking up women whereby you casually insult a girl to lower her self esteem (read: Θ), thus making her more available. I’m absolutely not advocating for this in any way, but at the very least, the origins of this strategy seem less mysterious given our framework of Θ signaling. I doubt that this strategy works regardless. Not because signaling isn’t important, but because insulting a crush makes you look like an asshole, and compassion is an important characteristic that people look for when trying to determine your Θ. However, simply signalling disinterest is a very good strategy. This simultaneously saves you from being rude while also signaling a lower perceived Θ to your person of interest.</p>
+
+		<p class="tab">So what are the consequences of this theory? Well, people who are less able to effectively signal their interests (or lack thereof) will tend to be less successful with finding partners. This perfectly explains the trope of the “awkward geek who can’t get a girlfriend.” The famous crush scenario from before is a situation that I think most guys (and maybe girls) go through as they learn what they can and can’t say when trying to signal their interests. Of course, for some this is easier to learn and improve than others.</p>
+
+		<img class="img-large img-border img-center" src="{{ url_for('static', filename='img/mclovin.gif') }}">
+
+		<p class="tab">If you’re looking for advice on picking up women, you’re probably looking in the wrong place by reading this. But if I had to take anything away from this, I’d say it’s not a bad idea to at least TRY to hide your excitement when approaching a crush.</p>
+
+		<p class="tab">For a more indepth look at signaling, <a href="https://wiki.lesswrong.com/wiki/Signaling" target="_blank">Less Wrong has a whole series</a> on it that's much more exhaustive than this.</p>
+		 
+    </div>
+</div>

@@ -6,10 +6,13 @@
             <img class="img-medium img-border round" src="{{ url_for('static', filename='img/thumbnails/thesis_architecture.png') }}">
             </div>
 
-            <h1 class="brand-name" style="margin-top:20px;">{{ context.post.title }}</h1>
+            <h1 class="brand-name">{{ context.post.title }}</h1>
             <hr class="tagline-divider">
             <h2 class="summary">
                 <small>{{ context.post.summary }}</small>
+            </h2>
+            <h2 class="summary">
+                <small>See below for links to the full paper and codebase.</small>
             </h2>
             <div class="row button-row">
                 <div class="col-sm-6 text-center row-button">
@@ -34,30 +37,3 @@
 
     </div>
 </div>
-
-<!-- <div class="box post-header">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-
-            <div class="image">
-            <img class="img-large img-border round" src="{{ url_for('static', filename='img/logo_wide.png') }}">
-            </div>
-
-            <h1 class="brand-name" style="margin-top:20px;">{{ context.post.title }}</h1>
-            <hr class="tagline-divider">
-            <h2 class="summary">
-                <small>{{ context.post.summary }}</small>
-            </h2>
-            <h4 class="date"><small>{{ context.post.date }}</small></h4>
-        </div>
-    </div>
-</div>
-
-<div class="box">
-    <div class="post-body">
-    	<h4>I. Test Page</h4>
-        
-		<p class="tab">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-
-    </div>
-</div> -->
