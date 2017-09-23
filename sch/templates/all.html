@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'components/head.html' %}
+
+<body>
+
+    <div id="wrapper" class="visible">
+
+        {% include 'components/sidenav.html' %}
+
+        <div id="page-content-wrapper">
+
+            <div class="brand">All Appointments</div>
+
+            <div class="container">
+
+            <!-- Result rows go here -->
+            <div class="results" id="#result-rows"></div>
+
+            </div>
+            <!-- /.container -->
+        </div>
+    </div>
+
+    {% include 'components/scripts.html' %}
+
+    <!-- On page load, make an ajax call to fetch all rows. -->
+    <script>$(document).ready(function() { getAllAppts(); });</script>
+
+</body>
+
+</html>
